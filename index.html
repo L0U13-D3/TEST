@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SHARP – School of Health &amp; Allied Related Professions</title>
+<script>
+(function(){
+ var h=document.documentElement;
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ h.classList.add('js');
+ var seen=0,hs=location.hash;
+ try{seen=sessionStorage.getItem('sharp-seen')}catch(e){}
+ if(!seen&&(!hs||hs==='#home'))h.classList.add('loading');
+ setTimeout(function(){if(!window.__imm){h.classList.remove('js');h.classList.remove('loading')}},5000);
+})();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="immersive.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+ <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+ <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+ <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><path d="m9.75 15.02 5.75-3.27-5.75-3.27z"/></symbol>
+</svg>
+
+<!-- DIRI GA INTRO SAN SCROLL -->
+<div id="loader" aria-hidden="true">
+ <div class="ld-top"><span>SHARP · SOUTHLAND COLLEGE</span><span>LOADING</span></div>
+ <ol id="ld-list">
+  <li>001 SCRUB IN</li><li>002 CHECK VITAL SIGNS</li><li>003 OPEN PATIENT CHARTS</li><li>004 SYNC CLINICAL ROTATIONS</li><li>005 PREPARE SKILLS LAB</li>
+  <li>006 CALIBRATE INSTRUMENTS</li><li>007 GREET THE FIRST PATIENT</li><li>008 LISTEN CLOSELY</li><li>009 BEGIN ROUNDS</li><li>010 START CARING</li>
+ </ol>
+ <div class="ld-n" id="ld-n">0%</div>
+ <div class="ld-bar"><i id="ld-bar"></i></div>
+</div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<div class="cursor" id="cur" aria-hidden="true"></div>
+<div class="hud" id="hud" aria-hidden="true">X:0000PX  Y:0000PX</div>
+
+<div class="top"><div class="wrap">
+ <div class="l"><a class="ic-link" href="tel:0344713280"><svg class="ic"><use href="#i-phone"/></svg>(034) 4713 280</a><a class="ic-link" href="mailto:info@southlandcollege.edu.ph"><svg class="ic"><use href="#i-mail"/></svg>info@southlandcollege.edu.ph</a></div>
+ <div class="r"><a href="#contact">Contact</a><a class="soc" href="#" aria-label="Facebook"><svg class="ic"><use href="#i-facebook"/></svg></a><button class="btn" data-inq>Inquire Now</button></div>
+</div></div>
+<header><div class="wrap">
+ <a class="brand" href="#home"><img src="images/sharp-crest.svg" alt="SHARP crest"><span><small>SCHOOL OF</small>HEALTH &amp; ALLIED RELATED PROFESSIONS</span></a>
+ <button class="burger" aria-label="Menu" id="burger">Menu</button>
+ <nav id="nav"><a href="#home" data-n="home">Home</a><a href="#admissions">Admissions</a><a href="#academics" data-n="academics">Academics</a><a href="#news">News</a><a href="#campus">Campus Life</a><a href="#careers">Careers</a></nav>
+</div></header>
+
+<main id="app"></main>
+
+<footer id="contact">
+ <div class="wrap g">
+  <div><img class="flogo" src="images/logo-footer.svg" alt="Southland College"><p style="max-width:300px;margin-top:16px">School of Health &amp; Allied Related Professions</p></div>
+  <div><h4>Explore</h4><a href="#home">Home</a><a href="#academics">Academics</a><a href="#admissions">Admissions</a><a href="#news">News</a><a href="#campus">Campus Life</a><a href="#careers">Careers</a></div>
+  <div><h4>Contact</h4><a class="ic-link" href="tel:0344713280"><svg class="ic"><use href="#i-phone"/></svg>(034) 4713 280</a><a class="ic-link" href="mailto:info@southlandcollege.edu.ph"><svg class="ic"><use href="#i-mail"/></svg>info@southlandcollege.edu.ph</a><a href="#contact">⌖ [ADDRESS]</a></div>
+  <div><h4>Follow</h4><div class="socs"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#i-facebook"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#i-instagram"/></svg></a><a href="#" aria-label="YouTube"><svg class="ic"><use href="#i-youtube"/></svg></a></div></div>
+ </div>
+ <div class="wrap b"><span>© 2026 Southland College. All rights reserved.</span><a href="#home" style="margin:0">Back to top ↑</a></div>
+</footer>
+
+<dialog id="dlg">
+ <h3 style="font-size:24px">Inquire now</h3>
+ <p style="color:var(--text-soft);margin:6px 0 0">Tell us a little about yourself and we’ll get back to you.</p>
+ <div id="fbody">
+ <label for="fn">Full name</label><input id="fn" autocomplete="name">
+ <label for="fe">Email</label><input id="fe" type="email" autocomplete="email">
+ <label for="fp">Program of interest</label><select id="fp"><option>School of Nursing</option><option>School of Midwifery</option></select>
+ <label for="fm">Message (optional)</label><textarea id="fm" rows="3"></textarea>
+ <div class="err" id="ferr"></div>
+ <div class="row" style="margin-top:8px"><button class="btn" id="send">Send inquiry</button><button class="btn out" id="cancel">Cancel</button></div>
+ </div>
+ <div id="fdone" hidden><p style="font-weight:700;margin:20px 0">Thank you! Your inquiry has been noted.</p><button class="btn" id="close">Close</button></div>
+</dialog>
+
+<script>
+const NC='<img src="images/logo-nursing.svg" alt="School of Nursing logo">',MC='<img src="images/logo-midwifery.svg" alt="School of Midwifery logo">';
+const stats=[['[00]','Students'],['[00]','Faculty'],['[00%]','Board exam pass rate'],['[00]','Partner hospitals']];
+const steps=[['Inquire'],['Submit'],['Assessment'],['Enroll']];
+
+/* Words that light up while scrolling. Put * in front of a word to make it green. */
+const W=s=>s.split(' ').map(w=>w[0]==='*'?`<span class="w hl">${w.slice(1)}</span>`:`<span class="w">${w}</span>`).join(' ');
+
+/* The four chapters of "Your path": [name, subtitle, description] */
+const stages=[
+ ['Learn','Classroom &amp; skills lab','[PLACEHOLDER: Describe the curriculum and skills lab training.]'],
+ ['Practice','Clinical rotations','[PLACEHOLDER: Describe hospital and community placements.]'],
+ ['Care','Real patients, real teams','[PLACEHOLDER: Describe supervised patient care and teamwork.]'],
+ ['Lead','Board exam &amp; beyond','[PLACEHOLDER: Describe licensure preparation and career support.]']
+];
+
+/* Words in the scrolling strip */
+const careers=['Hospital Nursing','Community Health','Maternal &amp; Newborn Care','Public Health','Clinical Education','Healthcare Leadership'];
+
+const pane=(idx,logo,cls,name,href,btn)=>`
+ <div class="pane ${cls}"><div class="pane-top"><span class="mono-l">[${idx}]</span><div class="lg">${logo}</div></div>
+  <div class="pane-bot"><span class="mono-l">School of</span><div class="big">${name}</div><p>[Short program summary.]</p><a class="btn ${btn} mag" href="${href}">View ${name} →</a></div></div>`;
+
+const home=()=>`
+<div class="hero imm dark">
+ <canvas id="heroCv" aria-hidden="true"></canvas>
+ <div class="wrap hero-in">
+  <p class="eyebrow mono-l">School of Nursing · School of Midwifery</p>
+  <h1><span class="ln"><span style="--i:0">Care that starts</span></span><span class="ln"><span style="--i:1">with <em>great training.</em></span></span></h1>
+  <div class="hero-low">
+   <div class="hero-copy">
+    <p class="lead">[One-line value statement about SHARP’s nursing and midwifery education.]</p>
+    <div class="row"><button class="btn mag" data-inq>Apply Now</button><a class="btn ghost mag" href="#academics">Explore Programs</a></div>
+   </div>
+   <dl class="meta"><div><dt>Schools</dt><dd>Nursing / Midwifery</dd></div><div><dt>College</dt><dd>Southland College</dd></div><div><dt>Location</dt><dd>[ADDRESS]</dd></div></dl>
+  </div>
+ </div>
+ <div class="cue mono-l" aria-hidden="true"><span>Move · Click</span><i></i><span>Scroll</span></div>
+</div>
+
+<section class="intro dark"><div class="intro-pin"><div class="wrap">
+ <p class="eyebrow">Why SHARP</p>
+ <p class="big">${W('Nurses and midwives are there for the *first *breath, the long night, and the *quiet *recovery. SHARP trains the people who *show *up.')}</p>
+</div></div></section>
+
+<section class="dark" id="schools"><div class="wrap">
+ <div class="headrow"><div><p class="eyebrow">Academics</p><h2 style="margin-top:10px">Our two schools</h2></div><p class="hint mono-l">Hover to explore</p></div>
+ <div class="duo" data-r>
+  ${pane('01',NC,'n','Nursing','#academics','red')}
+  ${pane('02',MC,'m','Midwifery','#midwifery','')}
+ </div>
+</div></section>
+
+<section class="stages dark" id="path"><div class="wrap">
+ <p class="eyebrow">Your path</p><h2 style="margin-top:10px;max-width:640px">From first lecture to licensed professional</h2>
+ <div class="stages-in">
+  <div class="sv"><div class="sv-card">
+   <svg class="sv-ring" viewBox="0 0 220 220" aria-hidden="true"><circle class="ring-dash" cx="110" cy="110" r="104"/><circle class="ring-bg" cx="110" cy="110" r="90"/><circle class="ring-v" cx="110" cy="110" r="90" transform="rotate(-90 110 110)"/></svg>
+   <div class="sv-c"><b class="sv-n">01</b><span class="sv-t">Learn</span></div>
+   <div class="sv-p" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div></div>
+  <div class="stage-list">${stages.map((s,i)=>`<div class="stage" data-t="${s[0]}"><span class="mono-l">[0${i+1}]</span><h3>${s[0]}</h3><h4>${s[1]}</h4><p>${s[2]}</p></div>`).join('')}</div>
+ </div>
+</div></section>
+
+<div class="stats"><div class="wrap">${stats.map(s=>`<div data-r><b>${s[0]}</b>${s[1]}</div>`).join('')}</div></div>
+
+<div class="mq" aria-hidden="true"><div class="mq-t">${[...careers,...careers].map(c=>`<span>${c}</span>`).join('')}</div></div>
+
+<section id="admissions"><div class="wrap adm">
+ <div class="adm-l" data-r><p class="eyebrow">Admissions</p><h2 style="margin-top:10px">How to apply</h2><p>[One or two lines about the admissions process.]</p><button class="btn mag" data-inq>Start your application</button></div>
+ <ol class="tl">${steps.map((s,i)=>`<li class="step" data-r><span class="mono-l">[0${i+1}]</span><h3>${s[0]}</h3><p>[Step description]</p></li>`).join('')}</ol>
+</div></section>
+
+<section class="tint" id="news"><div class="wrap"><div class="headrow"><div><p class="eyebrow">News</p><h2 style="margin-top:10px">Latest from SHARP</h2></div><a class="btn out" href="#news">All news</a></div>
+ <div class="grid news">${[1,2,3].map(()=>`<div data-r><div class="card tilt"><div class="ph"></div><p class="eyebrow">[Date]</p><h3 style="margin-top:10px">[Headline goes here]</h3></div></div>`).join('')}</div></div></section>
+
+<section id="campus"><div class="wrap split">
+ <div class="pwrap" data-r="clip"><div class="ph" data-par="0.07"></div></div>
+ <div data-r><p class="eyebrow">Campus Life</p><h2 style="margin:10px 0 14px">[Campus life headline]</h2><p style="color:var(--text-soft);margin:0 0 22px">[Short description.]</p><a class="btn out" href="#campus">Learn more</a></div>
+</div></section>
+
+<div class="cta" id="careers"><div class="wrap"><div data-r><p class="eyebrow" style="color:var(--teal)">Careers</p><h2 style="margin-top:8px">[Call to action headline]</h2></div><button class="btn dk mag" data-inq>Get in touch</button></div></div>`;
+
+const fac=()=>[1,2,3].map(()=>`<div class="card"><div class="ph"></div><h3>[Name]</h3><span>[Title]</span></div>`).join('');
+const acad=m=>{const o=m?'Nursing':'Midwifery',nm=m?'Midwifery':'Nursing';
+return `
+<div class="page-hd dark">
+ <svg class="ecg-deco" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true"><path class="e0" pathLength="1" d="M0 70H120l12-8 12 8H200l10 12 18-62 18 78 12-28H380l14-14 18 14H520l10 12 18-62 18 78 12-28H800"/><path class="e1" pathLength="1" d="M0 70H120l12-8 12 8H200l10 12 18-62 18 78 12-28H380l14-14 18 14H520l10 12 18-62 18 78 12-28H800"/></svg>
+ <div class="wrap"><div class="crumb mono-l"><a href="#home">Home</a> / Academics</div><h1><span class="ln"><span>Academics</span></span></h1>
+ <div class="row tabs ${m?'m':''}"><a class="btn ${m?'':'on'}" href="#academics">School of Nursing</a><a class="btn ${m?'on':''}" href="#midwifery">School of Midwifery</a></div></div></div>
+<section style="padding-bottom:80px"><div class="wrap layout"><div>
+ <div class="ph big"></div>
+ <div class="ttl">${m?MC:NC}<h2>School of ${nm}</h2></div>
+ <p style="color:var(--text-soft)">[Program overview. Two or three short paragraphs.]</p>
+ <h3 class="s">Curriculum</h3>
+ <div class="grid yrs">${[1,2,3,4].map(y=>`<div class="card"><h3>Year ${y}</h3><div class="bar" style="margin-top:14px"><i style="width:100%"></i></div><div class="bar"><i style="width:70%"></i></div></div>`).join('')}</div>
+ <h3 class="s">Faculty</h3><div class="grid fac">${fac()}</div>
+</div>
+<aside class="card side"><h3>Quick facts</h3>
+ <p>Duration: [00 years]</p><p>Intake: [Month]</p><p>Tuition: [Amount]</p><p>Clinical partners: [00]</p>
+ <button class="btn" data-inq>Apply Now</button><a class="btn out" href="#academics" id="brochure">Download brochure</a></aside></div></section>
+<div class="tint explore"><div class="wrap"><div class="l">${m?NC:MC}<h2>Also explore the School of ${o}</h2></div><a class="btn ${m?'red':''}" href="#${m?'academics':'midwifery'}">View ${o} →</a></div></div>`};
+
+const app=document.getElementById('app'),dlg=document.getElementById('dlg');
+
+/* Puts new HTML on the page, then tells immersive.js to set up its effects */
+function render(html){app.innerHTML=html;dispatchEvent(new Event('app:rendered'))}
+
+function route(){
+ const h=(location.hash||'#home').slice(1);
+ const known={home,academics:()=>acad(0),midwifery:()=>acad(1)};
+ const sec=['admissions','news','campus','careers','contact'];
+ if(sec.includes(h)){ if(!app.querySelector('#'+h)&&h!=='contact'){render(home());} const el=document.getElementById(h);el&&el.scrollIntoView({behavior:'smooth'});setNav('home');return}
+ render((known[h]||home)());
+ window.scrollTo(0,0);document.title=(h==='home'?'':h==='midwifery'?'Midwifery – ':'Academics – ')+'SHARP';
+ setNav(h==='midwifery'?'academics':known[h]?h:'home');
+ document.getElementById('nav').classList.remove('open');
+}
+function setNav(k){document.querySelectorAll('nav a[data-n]').forEach(a=>a.classList.toggle('on',a.dataset.n===k))}
+addEventListener('hashchange',route);route();
+document.getElementById('burger').onclick=()=>document.getElementById('nav').classList.toggle('open');
+document.getElementById('nav').onclick=e=>{if(e.target.tagName==='A')e.currentTarget.classList.remove('open')};
+document.body.addEventListener('click',e=>{
+ if(e.target.closest('[data-inq]')){document.getElementById('fbody').hidden=false;document.getElementById('fdone').hidden=true;document.getElementById('ferr').textContent='';dlg.showModal()}
+ if(e.target.id==='brochure'){e.preventDefault();alert('Brochure download will be available soon.')}
+});
+document.getElementById('cancel').onclick=document.getElementById('close').onclick=()=>dlg.close();
+document.getElementById('send').onclick=()=>{
+ const n=fn.value.trim(),m=fe.value.trim(),err=document.getElementById('ferr');
+ if(!n){err.textContent='Please enter your name.';return}
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){err.textContent='Please enter a valid email.';return}
+ document.getElementById('fbody').hidden=true;document.getElementById('fdone').hidden=false;fn.value=fe.value=fm.value='';
+};
+</script>
+<script src="immersive.js"></script>
+</body>
+</html>

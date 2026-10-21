@@ -1,0 +1,842 @@
+/* ==========================================================
+   SHARP website styles
+   1. Colors & basics   2. Buttons & cards   3. Header
+   4. Home page         5. Academics page    6. Footer
+   7. Inquiry popup     8. Mobile
+   ========================================================== */
+
+
+/* ---------- 1. COLORS & BASICS ---------- */
+
+:root {
+  --teal: #00322f;       /* dark brand color */
+  --green: #33cc99;      /* main accent */
+  --green-dark: #1fa97c; /* small labels */
+  --red: #cc0000;        /* Nursing accent */
+
+  --page-bg: #ffffff;
+  --card-bg: #ffffff;
+  --light-bg: #eaf8f3;   /* pale green sections */
+  --mint: #d5f1e6;       /* image placeholders, bars */
+  --border: #cde9df;
+  --text: #00322f;
+  --text-soft: #555555;
+}
+
+/* Dark mode: only the colors change */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #0b1f1d;
+    --card-bg: #0f2a27;
+    --light-bg: #10302c;
+    --mint: #17443d;
+    --border: #24504a;
+    --text: #e7f6f1;
+    --text-soft: #b4cdc7;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Manrope, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--page-bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* Centers content and limits its width */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Small uppercase label above headings */
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tint {
+  background: var(--light-bg);
+}
+
+
+/* ---------- 2. BUTTONS & CARDS ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--green);
+  color: var(--teal);
+  font-family: Manrope, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Button variations */
+.btn.out {
+  background: var(--card-bg);
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.btn.red {
+  background: var(--red);
+  color: #ffffff;
+}
+
+.btn.dk {
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.card {
+  padding: 25px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0, 50, 47, 0.06);
+}
+
+/* Gray-green box that stands in for a photo */
+.ph {
+  background: var(--mint);
+  border-radius: 12px;
+}
+
+/* Progress bar */
+.bar {
+  height: 10px;
+  background: var(--mint);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--green);
+}
+
+
+/* ---------- ICONS ---------- */
+
+.ic {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Link with a small icon in front of the text */
+.ic-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ic-link .ic {
+  color: var(--green);
+}
+
+footer .ic-link {
+  gap: 12px;
+}
+
+footer .ic {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ---------- 3. HEADER ---------- */
+
+/* Thin dark bar at the very top */
+.top {
+  background: var(--teal);
+  color: #dddddd;
+  font-size: 13px;
+}
+
+.top .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.top .l,
+.top .r {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top .btn {
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+/* Round social icon */
+.soc {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Main header with logo and menu (stays at top while scrolling) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--page-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 250px;
+}
+
+.brand img {
+  flex: none;
+  width: 72px;
+  height: 72px;
+}
+
+.brand span {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.brand small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  gap: 34px;
+}
+
+nav a {
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a.on {
+  border-color: var(--green);
+}
+
+/* Menu button, only shown on phones */
+.burger {
+  display: none;
+  padding: 8px 12px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: 700 14px Manrope, sans-serif;
+}
+
+
+/* ---------- 4. HOME PAGE ---------- */
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--light-bg), var(--page-bg));
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero h1 {
+  margin: 16px 0 20px;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--green-dark);
+}
+
+.hero .lead {
+  margin: 0 0 28px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.hero .ph {
+  height: 420px;
+}
+
+/* Two school cards */
+.schools {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 36px;
+}
+
+.school {
+  border-top: 5px solid var(--green);
+}
+
+.school.n {
+  border-top-color: var(--red);
+}
+
+.school .hd {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.school .hd img {
+  flex: none;
+  width: 130px;
+  height: 130px;
+}
+
+.school .hd small {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+}
+
+.school.n .hd small {
+  color: var(--red);
+}
+
+.school .hd b {
+  font-size: 28px;
+}
+
+.school p {
+  margin: 0 0 12px;
+  color: var(--text-soft);
+}
+
+.school .bar {
+  margin-bottom: 20px;
+}
+
+/* Dark numbers strip */
+.stats {
+  background: var(--teal);
+  color: #bbbbbb;
+  text-align: center;
+}
+
+.stats .wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
+.stats b {
+  display: block;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+/* How to apply */
+.steps {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 36px;
+}
+
+.steps .n {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  background: var(--green);
+  border-radius: 50%;
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.steps p,
+.news p {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+}
+
+/* News cards */
+.news {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 36px;
+}
+
+.news .ph {
+  height: 180px;
+  margin-bottom: 12px;
+}
+
+.headrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+/* Image + text side by side */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.split .ph {
+  height: 340px;
+}
+
+/* Green call-to-action band */
+.cta {
+  padding: 56px 0;
+  background: var(--green);
+}
+
+.cta .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+
+/* ---------- 5. ACADEMICS PAGE ---------- */
+
+/* Page title area */
+.page-hd {
+  background: var(--light-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hd .wrap {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.page-hd h1 {
+  margin-bottom: 22px;
+  font-size: 46px;
+  font-weight: 800;
+}
+
+.crumb {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #777777;
+}
+
+.crumb a:hover {
+  text-decoration: underline;
+}
+
+/* School tabs: the active one is filled in */
+.tabs .btn {
+  background: var(--card-bg);
+  border-color: var(--green);
+  color: var(--text);
+}
+
+.tabs .btn.on {
+  background: var(--red);
+  border-color: var(--red);
+  color: #ffffff;
+}
+
+.tabs.m .btn.on {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--teal);
+}
+
+/* Main content on the left, quick facts on the right */
+.layout {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.layout .ph.big {
+  height: 340px;
+}
+
+.layout h3.s {
+  margin: 32px 0 18px;
+  font-size: 22px;
+}
+
+.ttl {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.ttl img {
+  flex: none;
+  width: 104px;
+  height: 104px;
+}
+
+.yrs {
+  grid-template-columns: 1fr 1fr;
+}
+
+.fac {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.fac .ph {
+  height: 140px;
+  margin-bottom: 12px;
+}
+
+.fac h3 {
+  font-size: 18px;
+}
+
+.fac span {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+/* Quick facts box */
+.side {
+  position: sticky;
+  top: 110px;
+}
+
+.side p {
+  margin: 10px 0;
+}
+
+.side .btn {
+  display: block;
+  margin-top: 12px;
+}
+
+/* "Also explore" band */
+.explore .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.explore .l {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.explore img {
+  width: 92px;
+  height: 92px;
+  padding: 8px;
+  background: var(--card-bg);
+  border-radius: 12px;
+}
+
+
+/* ---------- 6. FOOTER ---------- */
+
+footer {
+  background: var(--teal);
+  color: #cccccc;
+  font-size: 14px;
+}
+
+footer .g {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.3fr 1fr;
+  gap: 48px;
+  padding-top: 64px;
+  padding-bottom: 56px;
+}
+
+footer h4 {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+footer a {
+  display: block;
+  margin-bottom: 12px;
+}
+
+footer a:hover {
+  color: var(--green);
+}
+
+footer .flogo {
+  width: 240px;
+  max-width: 100%;
+}
+
+footer .socs {
+  display: flex;
+  gap: 12px;
+}
+
+footer .socs a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Bottom copyright line */
+footer .b {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-top: 1px solid #444444;
+  font-size: 13px;
+}
+
+
+/* ---------- 7. INQUIRY POPUP ---------- */
+
+dialog {
+  width: min(440px, 92vw);
+  padding: 28px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+dialog::backdrop {
+  background: rgba(0, 30, 28, 0.55);
+}
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--page-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+}
+
+.err {
+  min-height: 18px;
+  font-size: 13px;
+  color: var(--red);
+}
+
+
+/* ---------- 8. MOBILE (screens under 960px wide) ---------- */
+
+@media (max-width: 960px) {
+  .wrap {
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  /* Menu becomes a dropdown */
+  .burger {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px;
+    background: var(--page-bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 14px 0;
+  }
+
+  .top .l {
+    display: none;
+  }
+
+  /* Side-by-side layouts stack vertically */
+  .hero .wrap,
+  .split,
+  .layout,
+  .schools,
+  .yrs,
+  .news,
+  .fac {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .stats .wrap,
+  .steps,
+  footer .g {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero .ph {
+    height: 240px;
+  }
+
+  .school .hd img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .side {
+    position: static;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 520px) {
+  .stats .wrap,
+  .steps,
+  footer .g {
+    grid-template-columns: 1fr;
+  }
+}
